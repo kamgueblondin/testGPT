@@ -1,7 +1,53 @@
 ---
 license: apache-2.0
+language:
+  - en
+tags:
+  - sft
+pipeline_tag: text-generation
+widget:
+  - text: <|prompter|>What is a meme, and what's the history behind this word?<|endoftext|><|assistant|>
+  - text: <|prompter|>What's the Earth total population<|endoftext|><|assistant|>
+  - text: <|prompter|>Write a story about future of AI development<|endoftext|><|assistant|>
 ---
-- wandb: https://wandb.ai/open-assistant/supervised-finetuning/runs/770a0t41 ()
+
+# Open-Assistant SFT-4 12B Model
+
+
+This is the 4th iteration English supervised-fine-tuning (SFT) model of 
+the [Open-Assistant](https://github.com/LAION-AI/Open-Assistant) project. 
+It is based on a Pythia 12B that was fine-tuned on human demonstrations 
+of assistant conversations collected through the 
+[https://open-assistant.io/](https://open-assistant.io/) human feedback web 
+app before March 25, 2023. 
+
+## Model Details
+
+- **Developed by:** [Open-Assistant Contributors](https://open-assistant.io/)
+- **Model type:** Transformer-based Language Model
+- **Language:** English
+- **Finetuned from:** [EleutherAI / pythia-12b-deduped](https://huggingface.co/EleutherAI/pythia-12b-deduped)
+- **Code:** [Open-Assistant/model/model_training](https://github.com/LAION-AI/Open-Assistant/tree/main/model/model_training)
+- **Demo:** [Continuations for 250 random prompts](https://open-assistant.github.io/oasst-model-eval/?f=https%3A%2F%2Fraw.githubusercontent.com%2FOpen-Assistant%2Foasst-model-eval%2Fmain%2Fsampling_reports%2Foasst-sft%2F2023-03-09_andreaskoepf_oasst-1_12b_7000_sampling_noprefix_lottery.json) ([sampling code](https://github.com/Open-Assistant/oasst-model-eval/blob/3d71f3be100c05cd8ddb568365e036a29fbff8c7/model_eval/manual/sampling_report.py)).
+- **License:** Apache 2.0
+- **Contact:** [Open-Assistant Discord](https://ykilcher.com/open-assistant-discord)
+
+## Prompting
+
+Two special tokens are used to mark the beginning of user and assistant turns:
+`<|prompter|>` and `<|assistant|>`. Each turn ends with a `<|endoftext|>` token.
+
+Input prompt example:
+```
+<|prompter|>What is a meme, and what's the history behind this word?<|endoftext|><|assistant|>
+```
+The input ends with the `<|assistant|>` token to signal that the model should 
+start generating the assistant reply.
+
+
+## Dev Details
+
+- wandb: https://wandb.ai/open-assistant/supervised-finetuning/runs/770a0t41
 - base model: [andreaskoepf/pythia-12b-pre-2000](https://huggingface.co/andreaskoepf/pythia-12b-pre-2000)
 - checkpoint: 4000 steps
 - [sampling report](https://open-assistant.github.io/oasst-model-eval/?f=https%3A%2F%2Fraw.githubusercontent.com%2FOpen-Assistant%2Foasst-model-eval%2Fmain%2Fsampling_reports%2Foasst-sft%2F2023-04-03_andreaskoepf_oasst-sft-4-pythia-12b-epoch-3_5_sampling_noprefix_lottery.json%0Ahttps%3A%2F%2Fraw.githubusercontent.com%2FOpen-Assistant%2Foasst-model-eval%2Fmain%2Fsampling_reports%2Fchat-gpt%2F2023-04-11_gpt-3.5-turbo_lottery.json)
