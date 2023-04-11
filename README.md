@@ -6,7 +6,7 @@ license: apache-2.0
 - checkpoint: 4000 steps
 - [sampling report](https://open-assistant.github.io/oasst-model-eval/?f=https%3A%2F%2Fraw.githubusercontent.com%2FOpen-Assistant%2Foasst-model-eval%2Fmain%2Fsampling_reports%2Foasst-sft%2F2023-04-03_andreaskoepf_oasst-sft-4-pythia-12b-epoch-3_5_sampling_noprefix_lottery.json%0Ahttps%3A%2F%2Fraw.githubusercontent.com%2FOpen-Assistant%2Foasst-model-eval%2Fmain%2Fsampling_reports%2Fchat-gpt%2F2023-04-11_gpt-3.5-turbo_lottery.json)
 
-command: `/home/ubuntu/Open-Assistant/model/model_training/trainer_sft.py --local_rank=0 --configs defaults reference-data reference-pythia-12b --cache_dir /home/ubuntu/data_cache --output_dir .saved/oasst-sft-3-pythia-12b-reference_2kpre --num_train_epochs 8 --residual_dropout 0.2 --deepspeed --use_flash_attention true --model_name andreaskoepf/pythia-12b-pre-2000`
+command: `deepspeed trainer_sft.py --configs defaults reference-data reference-pythia-12b --cache_dir /home/ubuntu/data_cache --output_dir .saved/oasst-sft-3-pythia-12b-reference_2kpre --num_train_epochs 8 --residual_dropout 0.2 --deepspeed --use_flash_attention true --model_name andreaskoepf/pythia-12b-pre-2000`
 
 data:
 ```
