@@ -1,7 +1,7 @@
 ---
 license: apache-2.0
 ---
-fine-tuned with OA data on top of `andreaskoepf/pythia-12b-pre-2000`
+fine-tuned with OA data on top of [andreaskoepf/pythia-12b-pre-2000](https://huggingface.co/andreaskoepf/pythia-12b-pre-2000)
 
 wandb: https://wandb.ai/open-assistant/supervised-finetuning/runs/770a0t41 (exported at 4000 steps)
 
