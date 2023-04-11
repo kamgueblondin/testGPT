@@ -28,7 +28,7 @@ app before March 25, 2023.
 - **Language:** English
 - **Finetuned from:** [EleutherAI / pythia-12b-deduped](https://huggingface.co/EleutherAI/pythia-12b-deduped)
 - **Code:** [Open-Assistant/model/model_training](https://github.com/LAION-AI/Open-Assistant/tree/main/model/model_training)
-- **Demo:** [Continuations for 250 random prompts](https://open-assistant.github.io/oasst-model-eval/?f=https%3A%2F%2Fraw.githubusercontent.com%2FOpen-Assistant%2Foasst-model-eval%2Fmain%2Fsampling_reports%2Foasst-sft%2F2023-03-09_andreaskoepf_oasst-1_12b_7000_sampling_noprefix_lottery.json) ([sampling code](https://github.com/Open-Assistant/oasst-model-eval/blob/3d71f3be100c05cd8ddb568365e036a29fbff8c7/model_eval/manual/sampling_report.py)).
+- **Demo:** [Continuations for 250 random prompts](https://open-assistant.github.io/oasst-model-eval/?f=https%3A%2F%2Fraw.githubusercontent.com%2FOpen-Assistant%2Foasst-model-eval%2Fmain%2Fsampling_reports%2Foasst-sft%2F2023-04-03_andreaskoepf_oasst-sft-4-pythia-12b-epoch-3_5_sampling_noprefix_lottery.json%0Ahttps%3A%2F%2Fraw.githubusercontent.com%2FOpen-Assistant%2Foasst-model-eval%2Fmain%2Fsampling_reports%2Fchat-gpt%2F2023-04-11_gpt-3.5-turbo_lottery.json)
 - **License:** Apache 2.0
 - **Contact:** [Open-Assistant Discord](https://ykilcher.com/open-assistant-discord)
 
@@ -50,7 +50,6 @@ start generating the assistant reply.
 - wandb: https://wandb.ai/open-assistant/supervised-finetuning/runs/770a0t41
 - base model: [andreaskoepf/pythia-12b-pre-2000](https://huggingface.co/andreaskoepf/pythia-12b-pre-2000)
 - checkpoint: 4000 steps
-- [sampling report](https://open-assistant.github.io/oasst-model-eval/?f=https%3A%2F%2Fraw.githubusercontent.com%2FOpen-Assistant%2Foasst-model-eval%2Fmain%2Fsampling_reports%2Foasst-sft%2F2023-04-03_andreaskoepf_oasst-sft-4-pythia-12b-epoch-3_5_sampling_noprefix_lottery.json%0Ahttps%3A%2F%2Fraw.githubusercontent.com%2FOpen-Assistant%2Foasst-model-eval%2Fmain%2Fsampling_reports%2Fchat-gpt%2F2023-04-11_gpt-3.5-turbo_lottery.json)
 
 command: `deepspeed trainer_sft.py --configs defaults reference-data reference-pythia-12b --cache_dir /home/ubuntu/data_cache --output_dir .saved/oasst-sft-3-pythia-12b-reference_2kpre --num_train_epochs 8 --residual_dropout 0.2 --deepspeed --use_flash_attention true --model_name andreaskoepf/pythia-12b-pre-2000`
 
